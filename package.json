@@ -1,0 +1,27 @@
+{
+  "name": "food-finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stregaa/food-finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stregaa/food-finder/issues"
+  },
+  "homepage": "https://github.com/Stregaa/food-finder#readme",
+  "dependencies": {
+    "boostrap": "^2.0.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "nodemon": "^2.0.20"
+  }
+}
