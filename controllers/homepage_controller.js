@@ -12,23 +12,36 @@ let homepage_controller = {
             headers: { "Accept-Encoding": "gzip,deflate,compress" } 
         })
             .then(resp => {
-                mealName = resp.data.meals[0].strMeal
                 mealImage = resp.data.meals[0].strMealThumb
-                ing1 = resp.data.meals[0].strIngredient1
-                ing2 = resp.data.meals[0].strIngredient2
-                ing3 = resp.data.meals[0].strIngredient3
-                ing4 = resp.data.meals[0].strIngredient4
-                ing5 = resp.data.meals[0].strIngredient5
+                mealName = resp.data.meals[0].strMeal
+                // console.log(mealName)
+                totalIngredients = []
+                totalIngredients.push(
+                    resp.data.meals[0].strIngredient1,
+                    resp.data.meals[0].strIngredient2,
+                    resp.data.meals[0].strIngredient3,
+                    resp.data.meals[0].strIngredient4,
+                    resp.data.meals[0].strIngredient5,
+                    resp.data.meals[0].strIngredient6,
+                    resp.data.meals[0].strIngredient7,
+                    resp.data.meals[0].strIngredient8,
+                    resp.data.meals[0].strIngredient9,
+                    resp.data.meals[0].strIngredient10
+                )
+                // console.log(totalIngredients)
 
-                console.log(mealName)
+                ingredients = []
+                for (x in totalIngredients) {
+                    if (totalIngredients[x] != ''){
+                        ingredients.push(totalIngredients[x])
+                    }
+                }
+                // console.log(ingredients)
+
                 res.render('layout', {
                     food_image: mealImage,
                     food_name: mealName,
-                    ing1: ing1,
-                    ing2: ing2,
-                    ing3: ing3,
-                    ing4: ing4,
-                    ing5: ing5,
+                    ingredients: ingredients
                 })
             })
             .catch(err => console.log(err))

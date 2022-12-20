@@ -4,18 +4,20 @@
         <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">
             Common Ingredients:
         </a>
-        <a href="#" class="list-group-item list-group-item-action"><%= ing1 %></a>
-        <a href="#" class="list-group-item list-group-item-action"><%= ing2 %></a>
-        <a href="#" class="list-group-item list-group-item-action"><%= ing3 %></a>
-        <a href="#" class="list-group-item list-group-item-action"><%= ing4 %></a>
-        <a href="#" class="list-group-item list-group-item-action"><%= ing5 %></a>
+        <% for (var i=0; i<ingredients.length; i++) { %>
+            <a href="#" class="list-group-item list-group-item-action"><%= ingredients[i] %></a>
+        <% } %>
     </div>
     <div class="row mt-3">
         <div class="col">
-            <button class="btn btn-outline-danger me-2 mb-3 swipe_left">Swipe Left</button>
+            <a href="/">
+                <button class="btn btn-outline-danger me-2 mb-3 swipe_left">Swipe Left</button>
+            </a>
         </div>
         <div class="col">
-            <button class="btn btn-outline-success ms-2 mb-3 swipe_right">Swipe Right</button>
+            <a href="#">
+                <button class="btn btn-outline-success ms-2 mb-3 swipe_right">Swipe Right</button>
+            </a>
         </div>  
     </div>
 </div>
