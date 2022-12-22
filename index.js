@@ -1,14 +1,20 @@
 const express = require("express");
 const ejsLayouts = require("express-ejs-layouts");
 const homepageController = require('./controllers/homepage_controller');
+const recipes_controller = require("./controllers/recipes_controller")
+const path = require("path")
 
 const app = express();
-const port = 8080
+const port = 8080;
 
 app.use(ejsLayouts);
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.use("/public", express.static(path.join(__dirname, "/public")));
 
-app.get("/", homepageController.renderPage)
+
+app.get("/", homepageController.renderPage);
+
 
 // Default page
 // app.get("/", function(req, res){
@@ -17,13 +23,16 @@ app.get("/", homepageController.renderPage)
 // });
 
 // Recipes list (doesn't exist yet)
-app.get("/recipe", function(req, res){
-    res.render("recipes")
-})
+app.get("/recipes/:food_name", recipes_controller.renderRecipes);
+
+
+
+
+
 
 // Login page (doesn't exist yet)
 app.get("/login", function(req, res){
-    res.render("login")
+    res.render("recipes")
 })
 
 // localhost:8080

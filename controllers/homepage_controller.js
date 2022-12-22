@@ -3,9 +3,12 @@ const { default: axios } = require("axios");
 const dotenv = require('dotenv');
 dotenv.config();
 
-let homepage_controller = {
 
-    renderPage: function(req, res){
+
+let homepage_controller = {
+    
+
+    renderPage: async function(req, res, next){
         
         axios.get("https://themealdb.com/api/json/v1/1/random.php", {
             // this returns what encodings we want.. without this line of code below the HTTPs request will
@@ -29,26 +32,24 @@ let homepage_controller = {
                     resp.data.meals[0].strIngredient10
                 )
                 // console.log(totalIngredients)
-
                 ingredients = []
                 for (x in totalIngredients) {
                     if (totalIngredients[x] != ''){
                         ingredients.push(totalIngredients[x])
                     }
                 }
-                // console.log(ingredients)
-
                 res.render('layout', {
                     food_image: mealImage,
                     food_name: mealName,
-                    ingredients: ingredients
+                    ingredients: ingredients,
                 })
+                
             })
             .catch(err => console.log(err))
 
         // uses SerpAPI to search google for recipe links
-        const SerpApi = require('google-search-results-nodejs');
-        const search = new SerpApi.GoogleSearch(process.env.API_KEY); // API key in .env
+        // const SerpApi = require('google-search-results-nodejs');
+        // const search = new SerpApi.GoogleSearch(process.env.API_KEY); // API key in .env
 
         // search.json({
         //     q: "Korean Fried Chicken", 
