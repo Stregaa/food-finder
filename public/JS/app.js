@@ -1,5 +1,6 @@
 let food_image = document.getElementById("swiped_image");
-let food_name = document.getElementById("food_item").textContent
+let food_item = document.getElementById("food_item").textContent
+let food_name = food_item.trim()
 let mc = new Hammer(food_image);
 
 
@@ -7,8 +8,8 @@ let mc = new Hammer(food_image);
 mc.on("panleft", function(ev){ 
     if(ev.isFinal){
         console.log("swiped left")
-        location.replace("http://localhost:8080")
         console.log(food_name)
+        location.replace("http://localhost:8080")
     }
 })
 
@@ -16,6 +17,7 @@ mc.on("panleft", function(ev){
 mc.on("panright", function(ev){
     if(ev.isFinal){
         console.log("swiped right (for recipes?)")
+        console.log(food_name)
         location.replace("http://localhost:8080/recipes/"+food_name)
     }
 })
