@@ -5,7 +5,7 @@ A web-app that gives users suggestions for dishes, then finds and saves recipes 
 1. ```npm install```  
 2. ```npm start```
 
-### To do:
+## To do:
 - connect database (mysql, postgres, mongo?)
 - figure out how we want to save/display the recipes per user
 - animations for swiping
