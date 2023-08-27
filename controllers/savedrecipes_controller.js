@@ -3,12 +3,10 @@ const database = require("../database/database")
 
 
 function deleteButton() {
-    console.log(test)
+    console.log("test")
 }
 
 let recipesliked_Controller = {
-
-
 
     renderSavedRecipes: function(req, res) {
         database.getRecipe((err, recipes) => {
@@ -33,10 +31,6 @@ let recipesliked_Controller = {
     renderDelete: function(req, res){
         
     }
-
-
-    
-
 
 }
 

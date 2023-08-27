@@ -15,5 +15,4 @@ CREATE TABLE recipes (
     title_two VARCHAR(250),
     title_three VARCHAR(250)
 
-    
 );

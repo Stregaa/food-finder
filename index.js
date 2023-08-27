@@ -13,7 +13,6 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use("/public", express.static(path.join(__dirname, "/public")));
 
-
 app.get("/", homepageController.renderPage);
 
 
@@ -25,13 +24,12 @@ app.get("/saved_recipes", recipesliked_controller.renderSavedRecipes);
 //     res.render("layout")
 // });
 
-// Recipes list (doesn't exist yet)
+// Recipes list
 app.get("/recipes/:food_name", recipes_controller.renderRecipes);
-
 
 // app.get("/saved_recipes", recipesliked_controller.renderSavedRecipes);
 
-app.post("/deleted", recipes_controller.)
+// app.post("/deleted", recipes_controller)
 
 
 // Login page (doesn't exist yet)

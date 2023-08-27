@@ -4,7 +4,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 
-
 let homepage_controller = {
     
     renderPage: async function(req, res, next){
