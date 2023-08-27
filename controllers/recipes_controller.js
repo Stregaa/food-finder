@@ -1,6 +1,8 @@
 const dotenv = require('dotenv');
 const homepage_controller = require('./homepage_controller');
+const database = require("../database/database")
 dotenv.config();
+
 
 let recipes_controller = { 
     // uses SerpAPI to search google for recipe links
@@ -32,6 +34,7 @@ let recipes_controller = {
                 )
             }
             console.log(recipes)
+            database.createRecipe(search_term, recipes[0], recipes[1], recipes[2])
             res.render('recipes', {
                 layout: false,
                 recipes: recipes
@@ -39,5 +42,7 @@ let recipes_controller = {
         }))
     }
 }
+
+
 
 module.exports = recipes_controller;
