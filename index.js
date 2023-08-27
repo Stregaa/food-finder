@@ -31,6 +31,7 @@ app.get("/recipes/:food_name", recipes_controller.renderRecipes);
 
 // app.get("/saved_recipes", recipesliked_controller.renderSavedRecipes);
 
+app.post("/deleted", recipes_controller.)
 
 
 // Login page (doesn't exist yet)

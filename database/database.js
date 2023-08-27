@@ -32,7 +32,6 @@ const createRecipe = (recipe_name, recipe_one, recipe_two, recipe_three) => {
 }
 
 
-
 exports.createRecipe = createRecipe;
 
 const getRecipe = (callback) => {
@@ -50,3 +49,18 @@ const getRecipe = (callback) => {
 }
 
 exports.getRecipe = getRecipe;
+
+const deleteRecipe = (callback, ID) => {
+    const query = `
+        DELETE FROM recipes WHERE id = ?
+    `
+    connection.query(query, ID ,(err, res) => {
+        if(err){
+            callback(err)
+        }else{
+            callback(null, res)
+        }
+    })
+}
+
+exports.deleteRecipe = deleteRecipe;

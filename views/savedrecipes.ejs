@@ -13,7 +13,29 @@
     <%- include('partials/navbar') %>
 
     <div class="container-fluid mt-5 mb-5 text-center">
+        <div class="row">
+            <div class="col-md-4"></div>
 
+            <!-- Recipes from SerpAPI -->
+            <div class="col-md-4">
+                <div class="card text-center border border-dark">
+                    <div class="card-header fw-semibold fs-2">Recipes</div>
+                    <% for (var i=0; i<recipes.length; i++) { %>
+                        <div class="card mt-3 mb-3 mx-auto border border-dark" style="width: 45%">
+                            <img src="<%= recipes[i].image_one %>" class="card-img-top" alt="<%= recipes[i].title %>">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= recipes[i].recipe_name %></h5>
+                            </div>
+                            <div class = "deleteButton">
+                                <button type="button" class="btn btn-danger" id= <%= recipes[i].id %> ">Delete</button>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+
+            <div class="col-md-4"></div>
+        </div>
 
 
     </div>

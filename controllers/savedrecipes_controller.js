@@ -2,7 +2,12 @@
 const database = require("../database/database")
 
 
+function deleteButton() {
+    console.log(test)
+}
+
 let recipesliked_Controller = {
+
 
 
     renderSavedRecipes: function(req, res) {
@@ -12,10 +17,27 @@ let recipesliked_Controller = {
                 return
             }
             console.log("IN HERE")
+            console.log(typeof recipes)
             console.log(recipes)
+            
+           
+            
+            res.render('savedrecipes', {
+                layout: false,
+                recipes: recipes    
+            })
+
         })
-        res.render('savedrecipes', {layout: false})
+        
+    },
+    renderDelete: function(req, res){
+        
     }
+
+
+    
+
+
 }
 
 module.exports = recipesliked_Controller;
