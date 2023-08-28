@@ -34,7 +34,7 @@ let recipes_controller = {
                 )
             }
             console.log(recipes)
-            database.createRecipe(search_term, recipes[0], recipes[1], recipes[2])
+            database.createRecipe(search_term.replace(" recipes", ""), recipes[0], recipes[1], recipes[2])
             res.render('recipes', {
                 layout: false,
                 recipes: recipes

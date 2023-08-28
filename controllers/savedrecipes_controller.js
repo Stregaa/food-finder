@@ -17,12 +17,10 @@ let recipesliked_Controller = {
             console.log("IN HERE")
             console.log(typeof recipes)
             console.log(recipes)
-            
-           
-            
+                      
             res.render('savedrecipes', {
                 layout: false,
-                recipes: recipes    
+                recipes: recipes
             })
 
         })

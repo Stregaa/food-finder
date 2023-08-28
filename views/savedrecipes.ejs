@@ -16,13 +16,15 @@
         <div class="row">
             <div class="col-md-4"></div>
 
-            <!-- Recipes from SerpAPI -->
+            <!-- Recipes from MySQL database  -->
             <div class="col-md-4">
                 <div class="card text-center border border-dark">
                     <div class="card-header fw-semibold fs-2">Recipes</div>
                     <% for (var i=0; i<recipes.length; i++) { %>
                         <div class="card mt-3 mb-3 mx-auto border border-dark" style="width: 45%">
-                            <img src="<%= recipes[i].image_one %>" class="card-img-top" alt="<%= recipes[i].title %>">
+                            <a href="/recipes/<%= recipes[i].recipe_name %>">
+                                <img src="<%= recipes[i].image_one %>" class="card-img-top" alt="<%= recipes[i].title %>">
+                            </a>
                             <div class="card-body">
                                 <h5 class="card-title"><%= recipes[i].recipe_name %></h5>
                             </div>
