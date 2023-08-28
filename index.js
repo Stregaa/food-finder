@@ -31,6 +31,7 @@ app.get("/recipes/:food_name", recipes_controller.renderRecipes);
 
 // app.get("/saved_recipes", recipesliked_controller.renderSavedRecipes);
 
+app.get("/recipes/delete/:id", deleterecipes_controller.renderDeleteRecipes)
 // app.post("/deleted", recipes_controller)
 
 

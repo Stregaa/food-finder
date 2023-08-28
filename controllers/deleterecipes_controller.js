@@ -4,18 +4,25 @@ const database = require("../database/database")
 let deleterecipes_Controller = {
 
     renderDeleteRecipes: function(req, res) {
-        console.log("hdshsdhsdghasdfhadf")
-        database.deleteRecipe((err, recipes) => {
+        console.log(req.params.id)
+        id = req.params.id
+        database.deleteRecipe((err) => {
             if(err){
                 console.log(err)
                 return
             }
-            console.log(req.params.id)
-                      
-            res.render('savedrecipes', {
-                layout: false,
-                recipes: recipes
+            // id = id
+            database.getRecipe((err, recipes) => {
+                if(err){
+                    console.log(err)
+                    return
+                }
+                res.render('savedrecipes', {
+                    layout: false,
+                    recipes: recipes
+                })
             })
+    
         })
     },
     

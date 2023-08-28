@@ -6,10 +6,10 @@ const mysql = require("mysql");
 const e = require("express");
 
 var connection = mysql.createConnection({
-    host    : process.env.MYSQL_HOST || "127.0.0.1",
-    user    : process.env.MYSQL_USER || "root",
-    password    : process.env.MYSQL_PASSWORD || "",
-    database    : process.env.MYSQL_DATABASE || "foodfinder"
+    host    : process.env.MYSQL_HOST, 
+    user    : process.env.MYSQL_USER,
+    password    : process.env.MYSQL_PASSWORD, 
+    database    : process.env.MYSQL_DATABASE,
      
 })
 
@@ -48,11 +48,12 @@ const getRecipe = (callback) => {
 exports.getRecipe = getRecipe;
 
 
-const deleteRecipe = (callback, ID) => {
+const deleteRecipe = (callback) => {
     const query = `
         DELETE FROM recipes WHERE id = ?
     `
-    connection.query(query, ID ,(err, res) => {
+    console.log("IN DATABASE.JS" +id)
+    connection.query(query, id ,(err, res) => {
         if(err){
             callback(err)
         }else{
