@@ -1,16 +1,16 @@
-//for saved recipes
+//delete recipes
 const database = require("../database/database")
 
-let recipesliked_Controller = {
+let deleterecipes_Controller = {
 
-    renderSavedRecipes: function(req, res) {
-        database.getRecipe((err, recipes) => {
+    renderDeleteRecipes: function(req, res) {
+        console.log("hdshsdhsdghasdfhadf")
+        database.deleteRecipe((err, recipes) => {
             if(err){
                 console.log(err)
                 return
             }
-            // console.log(typeof recipes)
-            // console.log(recipes)
+            console.log(req.params.id)
                       
             res.render('savedrecipes', {
                 layout: false,
@@ -18,11 +18,11 @@ let recipesliked_Controller = {
             })
         })
     },
-
+    
     // renderDelete: function(req, res){
 
     // }
 
 }
 
-module.exports = recipesliked_Controller;
+module.exports = deleterecipes_Controller;

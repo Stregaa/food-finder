@@ -16,7 +16,7 @@ var connection = mysql.createConnection({
 connection.connect();
 
 const createRecipe = (recipe_name, recipe_one, recipe_two, recipe_three) => {
-    console.log("IN HERE" +recipe_name, recipe_one, recipe_two, recipe_three,)
+    console.log("createRecipe " +recipe_name, recipe_one, recipe_two, recipe_three,)
     const query = `
         INSERT INTO recipes (recipe_name, recipe_one, recipe_two, recipe_three, image_one, image_two, image_three, title_one, title_two, title_three)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -26,13 +26,11 @@ const createRecipe = (recipe_name, recipe_one, recipe_two, recipe_three) => {
         if (err){
             console.log(err)
         }
-
     });
-
 }
 
-
 exports.createRecipe = createRecipe;
+
 
 const getRecipe = (callback) => {
     const query = `
@@ -43,12 +41,12 @@ const getRecipe = (callback) => {
             callback(err)
         }else{
             callback(null, res)
-
         }
     })
 }
 
 exports.getRecipe = getRecipe;
+
 
 const deleteRecipe = (callback, ID) => {
     const query = `

@@ -2,7 +2,8 @@ const express = require("express");
 const ejsLayouts = require("express-ejs-layouts");
 const homepageController = require('./controllers/homepage_controller');
 const recipes_controller = require("./controllers/recipes_controller")
-const recipesliked_controller = require("./controllers/savedrecipes_controller")
+const savedrecipes_controller = require("./controllers/savedrecipes_controller")
+const deleterecipes_controller = require("./controllers/deleterecipes_controller")
 const path = require("path")
 
 const app = express();
@@ -15,8 +16,9 @@ app.use("/public", express.static(path.join(__dirname, "/public")));
 
 app.get("/", homepageController.renderPage);
 
+app.get("/saved_recipes", savedrecipes_controller.renderSavedRecipes);
 
-app.get("/saved_recipes", recipesliked_controller.renderSavedRecipes);
+app.post("/recipes/delete/:id", deleterecipes_controller.renderDeleteRecipes)
 
 // Default page
 // app.get("/", function(req, res){

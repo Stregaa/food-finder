@@ -29,7 +29,9 @@
                                 <h5 class="card-title"><%= recipes[i].recipe_name %></h5>
                             </div>
                             <div class = "deleteButton mb-3">
-                                <button type="button" class="btn btn-outline-danger" id= <%= recipes[i].id %> ">Delete</button>
+                                <a href="/recipes/delete/<%= recipes[i].id %>">
+                                    <button type="button" class="btn btn-outline-danger">Delete</button>
+                                </a>
                             </div>
                         </div>
                     <% } %>
