@@ -8,7 +8,7 @@ let homepage_controller = {
     
     renderPage: async function(req, res, next){
         
-        axios.get("https://themealdb.com/api/json/v1/1/random.php", {
+        await axios.get("https://themealdb.com/api/json/v1/1/random.php", {
             // this returns what encodings we want.. without this line of code below the HTTPs request will
             headers: { "Accept-Encoding": "gzip,deflate,compress" } 
         })

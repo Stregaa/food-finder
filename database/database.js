@@ -21,7 +21,7 @@ const createRecipe = (recipe_name, recipe_one, recipe_two, recipe_three) => {
         INSERT INTO recipes (recipe_name, recipe_one, recipe_two, recipe_three, image_one, image_two, image_three, title_one, title_two, title_three)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `
-    const data = [recipe_name, recipe_one.link, recipe_two.link, recipe_three.link, recipe_one.thumbnail, recipe_two.thumbnail, recipe_three.thumbnail, recipe_one.title, recipe_two.title, recipe_three.title]
+    const data = [recipe_name.replace(" recipes", ""), recipe_one.link, recipe_two.link, recipe_three.link, recipe_one.thumbnail, recipe_two.thumbnail, recipe_three.thumbnail, recipe_one.title, recipe_two.title, recipe_three.title]
     connection.query(query, data ,function(err, res) {
         if (err){
             console.log(err)

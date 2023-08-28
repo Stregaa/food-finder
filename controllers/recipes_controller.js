@@ -6,7 +6,7 @@ dotenv.config();
 
 let recipes_controller = { 
     // uses SerpAPI to search google for recipe links
-    renderRecipes: async function(req, res) {
+    renderRecipes: function(req, res) {
         //seems to need the layout: false part, without it, it will reference layout.ejs for some reason.
         const SerpApi = require('google-search-results-nodejs');
         const search = new SerpApi.GoogleSearch(process.env.API_KEY); // API key in .env
@@ -19,9 +19,17 @@ let recipes_controller = {
         
         search.json({
             q: search_term, 
-            location: "Canada"
+            location: "Canada",
+            h1: "en",
+            gl: "ca",
+            google_domain: "google.ca"
         }, (result => {
             // console.log(result.recipes_results)
+            console.log("RESULTs" + result)
+            console.log("RESULTS RECIPE " + result.recipes_results)
+            if(result.recipes_results == "undefined"){
+                homepage_controller.renderPage
+            }
             recipes = []
             for (x in result.recipes_results) {
                 recipes.push(
@@ -33,7 +41,9 @@ let recipes_controller = {
                     }
                 )
             }
+            
             console.log(recipes)
+            
             database.createRecipe(search_term.replace(" recipes", ""), recipes[0], recipes[1], recipes[2])
             res.render('recipes', {
                 layout: false,
