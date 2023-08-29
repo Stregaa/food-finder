@@ -3,9 +3,11 @@ A web-app that gives users suggestions for dishes, then finds and saves recipes 
 
 ## To install packages and run:
 1. ```npm install```  
-2. ```npm start```
 
-## To do:
-- connect database (mysql, postgres, mongo?)
-- figure out how we want to save/display the recipes per user
-- animations for swiping
+## To create MySQL DB:
+1. Start the MySQL service, either in command line or a tool like Workbench
+2. Run the SQL queries found in ```schema.sql```
+
+## To run the web-app:
+1. ```npm start```
+2. Navigate to localhost:8080

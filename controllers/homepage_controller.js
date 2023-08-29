@@ -41,10 +41,8 @@ let homepage_controller = {
                     food_name: mealName,
                     ingredients: ingredients,
                 })
-                
             })
             .catch(err => console.log(err))
-
     },
 
 }

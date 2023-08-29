@@ -3,7 +3,6 @@ let food_item = document.getElementById("food_item").textContent
 let food_name = food_item.trim()
 let mc = new Hammer(food_image);
 
-
 //for swipe left functionality (refreshes main page)
 mc.on("panleft", function(ev){ 
     if(ev.isFinal){

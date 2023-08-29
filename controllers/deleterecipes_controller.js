@@ -11,7 +11,6 @@ let deleterecipes_Controller = {
                 console.log(err)
                 return
             }
-            // id = id
             database.getRecipe((err, recipes) => {
                 if(err){
                     console.log(err)
@@ -22,14 +21,9 @@ let deleterecipes_Controller = {
                     recipes: recipes
                 })
             })
-    
         })
     },
     
-    // renderDelete: function(req, res){
-
-    // }
-
 }
 
 module.exports = deleterecipes_Controller;

@@ -3,7 +3,6 @@ const homepage_controller = require('./homepage_controller');
 const database = require("../database/database")
 dotenv.config();
 
-
 let recipes_controller = { 
     // uses SerpAPI to search google for recipe links
     renderRecipes: function(req, res) {
@@ -14,8 +13,7 @@ let recipes_controller = {
         let food_item = req.params.food_name;
         let search_term = food_item+" recipes"
         console.log(search_term)
-        //what's searched will need to be the item swiped on.
-        
+        //what's searched will need to be the item swiped on
         
         search.json({
             q: search_term, 
@@ -25,8 +23,6 @@ let recipes_controller = {
             google_domain: "google.ca"
         }, (result => {
             // console.log(result.recipes_results)
-            console.log("RESULTs" + result)
-            console.log("RESULTS RECIPE " + result.recipes_results)
             if(result.recipes_results == "undefined"){
                 homepage_controller.renderPage
             }

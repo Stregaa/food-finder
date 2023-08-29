@@ -34,7 +34,6 @@ app.get("/recipes/:food_name", recipes_controller.renderRecipes);
 app.get("/recipes/delete/:id", deleterecipes_controller.renderDeleteRecipes)
 // app.post("/deleted", recipes_controller)
 
-
 // Login page (doesn't exist yet)
 app.get("/login", function(req, res){
     res.render("recipes")
